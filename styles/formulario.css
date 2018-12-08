@@ -1,0 +1,10 @@
+.formularioRegistro{
+    text-align: center;
+    background-color: #ba6c65;
+    margin-left: 35%;
+    margin-top: 10%;
+    width: 30%;
+    border-radius: 15%;
+    font-size: 20px;
+    box-sizing: border-box;
+}
