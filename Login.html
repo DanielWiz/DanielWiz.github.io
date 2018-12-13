@@ -27,7 +27,7 @@
         </div>
     </header>
     <main>
-            <form method="POST" action="http://danielwiz.pythonanywhere.com/auth/login/">
+            <form name="loginForm" onsubmit="return login(this);">
                 <div class="imgcontainer">
                   <img src="IMG/Login.png" alt="Avatar" class="avatar">
                 </div>
@@ -52,6 +52,7 @@
             &copy; Todos los derechos reservados
         </div>
     </footer>
+    <script src="js/app.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

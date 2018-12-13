@@ -11,12 +11,38 @@ if ('serviceWorker' in navigator) {
   
   }
 
+(function login(LoginForm) {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+  
+    var req = new XMLHttpRequest();
+    req.open("POST", "http://127.0.0.1:8000/login/", true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.withCredentials = true;
+    req.onreadystatechange = function() {
+      if (req.readyState == XMLHttpRequest.DONE) {
+        if (req.status == 200) {        
+          document.getElementById("log_form").style.display = 'none';
+          document.getElementById("logged_user").style.display = 'block';
+          document.getElementById("logged_user").textContent = document.getElementById("username").value;
+          document.getElementById("logout_button").style.display = 'block';
+          hide_error();
+        } 
+        else if (req.status == 401) {
+          document.getElementById('error_text').textContent = "User/password is incorrect";
+          document.getElementById('error').style.display="";
+        }
+      }
+    }
+    req.send(JSON.stringify({username: user, password: pass}));
+  }) () ; 
+
  ( function() {
     var txtApiData = document.getElementById( "txtApiData" );
     var users = { };
     var selectedUsers = [];
     var xhttp = new XMLHttpRequest();
-    var url = "http://127.0.0.1:8000/listas/";
+    var url = "http://danielwiz.pythonanywhere.com/Listas/";
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
