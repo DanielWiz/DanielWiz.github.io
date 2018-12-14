@@ -60,3 +60,8 @@ span.psw {
         visibility: hidden;
     }
 }
+@media screen and (max-width: 500px) {
+    footer{
+        visibility: hidden;
+    }
+}
