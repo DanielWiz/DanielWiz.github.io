@@ -16,7 +16,7 @@ if ('serviceWorker' in navigator) {
     var pass = document.getElementById("password").value;
   
     var req = new XMLHttpRequest();
-    req.open("POST", "http://127.0.0.1:8000/login/", true);
+    req.open("POST", "http://danielwiz.pythonanywhere.com/login/", true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.withCredentials = true;
     req.onreadystatechange = function() {
